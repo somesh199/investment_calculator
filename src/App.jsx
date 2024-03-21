@@ -12,11 +12,13 @@ function App() {
     duration: 10,
   });
 
+  const inputValid = userInput.duration >= 1;
+
   function handleChange(inputIdentifier, newInput) {
     setUserInput(prevUserData => {
       return {
         ...prevUserData,
-        [inputIdentifier] : newInput
+        [inputIdentifier] : +newInput
       }
     })
   }
@@ -25,7 +27,8 @@ function App() {
     <>
       <Header />
       <UserInput onInput={handleChange} investmentData = {userInput} />
-      <Result input={userInput}/>
+      {!inputValid && (<p className="center">Please enter the value more than zero.</p>)}
+      {inputValid && <Result input={userInput}/>}
     </>
   );
 }

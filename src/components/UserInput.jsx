@@ -17,11 +17,11 @@ function UserInput({onInput, investmentData}) {
           <input 
             type="number" 
             required
-            value={investmentData.annualInvesstment}
+            value={investmentData.annualInvestment}
             onChange={(event) => onInput('annualInvestment', event.target.value)}
           />
         </p>
-      </div>
+      </div>  
       <div className="input-group">
         <p>
           <label>Expected Return</label>
